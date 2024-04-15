@@ -18,6 +18,7 @@
 		1B87565E2BCD95BA0081AAB0 /* StatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B87565D2BCD95BA0081AAB0 /* StatBubbleView.swift */; };
 		1B8756602BCD98740081AAB0 /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B87565F2BCD98740081AAB0 /* ProjectCardView.swift */; };
 		1B8756622BCDAC5C0081AAB0 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8756612BCDAC5C0081AAB0 /* AddProjectView.swift */; };
+		1B8756652BCDD33E0081AAB0 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8756642BCDD33E0081AAB0 /* ProjectDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		1B87565D2BCD95BA0081AAB0 /* StatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBubbleView.swift; sourceTree = "<group>"; };
 		1B87565F2BCD98740081AAB0 /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
 		1B8756612BCDAC5C0081AAB0 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
+		1B8756642BCDD33E0081AAB0 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,10 +67,11 @@
 		1B8756412BCAFC9C0081AAB0 /* db-project-tracker */ = {
 			isa = PBXGroup;
 			children = (
-				1B87565C2BCD95850081AAB0 /* ProjectList */,
-				1B8756552BCB5F390081AAB0 /* Helpers */,
 				1B8756422BCAFC9C0081AAB0 /* DBProjectTracker.swift */,
+				1B87565C2BCD95850081AAB0 /* ProjectList */,
+				1B8756632BCDD32D0081AAB0 /* ProjectDetail */,
 				1B8756502BCAFCF50081AAB0 /* Models */,
+				1B8756552BCB5F390081AAB0 /* Helpers */,
 				1B8756462BCAFCA20081AAB0 /* Assets.xcassets */,
 				1B8756482BCAFCA20081AAB0 /* Preview Content */,
 			);
@@ -110,6 +113,14 @@
 				1B8756612BCDAC5C0081AAB0 /* AddProjectView.swift */,
 			);
 			path = ProjectList;
+			sourceTree = "<group>";
+		};
+		1B8756632BCDD32D0081AAB0 /* ProjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1B8756642BCDD33E0081AAB0 /* ProjectDetailView.swift */,
+			);
+			path = ProjectDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 				1B8756452BCAFC9C0081AAB0 /* ProjectListView.swift in Sources */,
 				1B8756602BCD98740081AAB0 /* ProjectCardView.swift in Sources */,
 				1B8756432BCAFC9C0081AAB0 /* DBProjectTracker.swift in Sources */,
+				1B8756652BCDD33E0081AAB0 /* ProjectDetailView.swift in Sources */,
 				1B8756522BCAFD030081AAB0 /* Project.swift in Sources */,
 				1B87565B2BCD741B0081AAB0 /* HelperUtils.swift in Sources */,
 			);

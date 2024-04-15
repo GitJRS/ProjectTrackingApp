@@ -53,3 +53,6 @@ struct AddProjectView: View {
   }
 }
 
+#Preview {
+  AddProjectView(project: Project())
+}

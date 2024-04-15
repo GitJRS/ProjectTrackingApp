@@ -15,64 +15,72 @@ struct ProjectListView: View {
   
   var body: some View {
     
-    ZStack {
+    NavigationStack {
       
-      LinearGradient(
-        colors: [Color("User Deep Purple"), Color("User Blush Pink")],
-        startPoint: .top,
-        endPoint: .bottom)
-      .ignoresSafeArea()
-      
-      VStack (alignment: .leading) {
+      ZStack {
         
-        Text("Projects")
-          .font(Font.screenHeading)
-          .foregroundStyle(.white)
+        LinearGradient(
+          colors: [Color("User Deep Purple"), Color("User Blush Pink")],
+          startPoint: .top,
+          endPoint: .bottom)
+        .ignoresSafeArea()
         
-        ScrollView (showsIndicators: false) {
+        VStack (alignment: .leading) {
           
-          VStack (alignment: .leading, spacing: 26) {
+          Text("Projects")
+            .font(Font.screenHeading)
+            .foregroundStyle(.white)
+          
+          ScrollView (showsIndicators: false) {
             
-            ForEach(projects) { p in
-              ProjectCardView(project: p)
+            VStack (alignment: .leading, spacing: 26) {
+              
+              ForEach(projects) { p in
+                
+                NavigationLink {
+                  ProjectDetailView(project: p)
+                } label: {
+                  ProjectCardView(project: p)
+                }
+                .buttonStyle(.plain)
+              }
             }
           }
-          
-          
         }
-      }
-      .padding()
-      
-      VStack {
+        .padding()
         
-        Spacer()
-        
-        HStack {
-          
-          Button {
-            
-            // create new project
-            self.newProject = Project()
-            
-          } label: {
-            ZStack {
-              
-              Circle()
-                .frame(width: 65)
-                .foregroundStyle(Color.black)
-              
-              Image("cross")
-            }
-          }
+        VStack {
           
           Spacer()
+          
+          HStack {
+            
+            Button {
+              
+              // create new project
+              self.newProject = Project()
+              
+            } label: {
+              ZStack {
+                
+                Circle()
+                  .frame(width: 65)
+                  .foregroundStyle(Color.black)
+                
+                Image("cross")
+              }
+            }
+            
+            Spacer()
+          }
         }
+        .padding(.leading)
       }
-      .padding(.leading)
     }
     .sheet(item: $newProject) { project in
       AddProjectView(project: project)
         .presentationDetents([.fraction(0.2)])
+      
     }
   }
 }
