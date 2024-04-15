@@ -17,6 +17,7 @@
 		1B87565B2BCD741B0081AAB0 /* HelperUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B87565A2BCD741B0081AAB0 /* HelperUtils.swift */; };
 		1B87565E2BCD95BA0081AAB0 /* StatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B87565D2BCD95BA0081AAB0 /* StatBubbleView.swift */; };
 		1B8756602BCD98740081AAB0 /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B87565F2BCD98740081AAB0 /* ProjectCardView.swift */; };
+		1B8756622BCDAC5C0081AAB0 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8756612BCDAC5C0081AAB0 /* AddProjectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		1B87565A2BCD741B0081AAB0 /* HelperUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperUtils.swift; sourceTree = "<group>"; };
 		1B87565D2BCD95BA0081AAB0 /* StatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBubbleView.swift; sourceTree = "<group>"; };
 		1B87565F2BCD98740081AAB0 /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
+		1B8756612BCDAC5C0081AAB0 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				1B8756442BCAFC9C0081AAB0 /* ProjectListView.swift */,
 				1B87565D2BCD95BA0081AAB0 /* StatBubbleView.swift */,
 				1B87565F2BCD98740081AAB0 /* ProjectCardView.swift */,
+				1B8756612BCDAC5C0081AAB0 /* AddProjectView.swift */,
 			);
 			path = ProjectList;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				1B8756572BCB5F4D0081AAB0 /* FontExtension.swift in Sources */,
 				1B87565E2BCD95BA0081AAB0 /* StatBubbleView.swift in Sources */,
 				1B8756542BCAFD860081AAB0 /* ProjectUpdate.swift in Sources */,
+				1B8756622BCDAC5C0081AAB0 /* AddProjectView.swift in Sources */,
 				1B8756452BCAFC9C0081AAB0 /* ProjectListView.swift in Sources */,
 				1B8756602BCD98740081AAB0 /* ProjectCardView.swift in Sources */,
 				1B8756432BCAFC9C0081AAB0 /* DBProjectTracker.swift in Sources */,

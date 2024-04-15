@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProjectCardView: View {
   
+  var project: Project
+  
   var body: some View {
     
     ZStack (alignment: .leading) {
@@ -19,7 +21,7 @@ struct ProjectCardView: View {
       
       VStack (alignment: .leading, spacing: 10) {
         
-        Text("CodeWithChris")
+        Text(project.name)
           .font(.bigHeadline)
           .foregroundStyle(.white)
         
@@ -27,10 +29,10 @@ struct ProjectCardView: View {
           
           Spacer()
           
-          StatBubbleView(title: "Hours", stat: "290", gradientStartColor: Color("Navy"), gradientEndColor: Color("Blue"))
-          StatBubbleView(title: "Sessions", stat: "34", gradientStartColor: Color("Green"), gradientEndColor: Color("Dark Lime"))
-          StatBubbleView(title: "Updates", stat: "32", gradientStartColor: Color("Maroon"), gradientEndColor: Color("Purple"))
-          StatBubbleView(title: "Wins", stat: "9", gradientStartColor: Color("Maroon"), gradientEndColor: Color("Olive"))
+          StatBubbleView(title: "Hours", stat: "290", gradientStartColor: Color("User Navy"), gradientEndColor: Color("User Blue"))
+          StatBubbleView(title: "Sessions", stat: "34", gradientStartColor: Color("User Green"), gradientEndColor: Color("User Dark Lime"))
+          StatBubbleView(title: "Updates", stat: "32", gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Purple"))
+          StatBubbleView(title: "Wins", stat: "9", gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Olive"))
           
           Spacer()
         }
@@ -49,5 +51,5 @@ struct ProjectCardView: View {
 }
 
 #Preview {
-  ProjectCardView()
+  ProjectCardView(project: Project())
 }
