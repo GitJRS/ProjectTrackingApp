@@ -25,7 +25,7 @@ struct ProjectCardView: View {
           .font(.bigHeadline)
           .foregroundStyle(.white)
         
-        HStack (alignment: .center) {
+        HStack (alignment: .center, spacing: 13) {
           
           Spacer()
           
@@ -37,7 +37,7 @@ struct ProjectCardView: View {
           Spacer()
         }
         
-        Text("My current focus is...")
+        Text("My current focus is")
           .font(.featuredText)
           .foregroundStyle(.gray)
         Text("Design the new website")

@@ -16,7 +16,7 @@ class Project: Identifiable {
   var startDate: Date
   var focus: String
   @Relationship(deleteRule: .cascade, inverse: \ProjectUpdate.project)
-  var update: [ProjectUpdate]
+  var updates: [ProjectUpdate]
   
   init() {
     
@@ -24,6 +24,6 @@ class Project: Identifiable {
     name = ""
     startDate = Date()
     focus = ""
-    update = [ProjectUpdate]()
+    updates = [ProjectUpdate]()
   }
 }

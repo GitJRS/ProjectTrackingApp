@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B59D1A12BCDE8380088B686 /* ProjectUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B59D1A02BCDE8380088B686 /* ProjectUpdateView.swift */; };
 		1B8756432BCAFC9C0081AAB0 /* DBProjectTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8756422BCAFC9C0081AAB0 /* DBProjectTracker.swift */; };
 		1B8756452BCAFC9C0081AAB0 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8756442BCAFC9C0081AAB0 /* ProjectListView.swift */; };
 		1B8756472BCAFCA20081AAB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8756462BCAFCA20081AAB0 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B59D1A02BCDE8380088B686 /* ProjectUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateView.swift; sourceTree = "<group>"; };
 		1B87563F2BCAFC9C0081AAB0 /* db-project-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "db-project-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8756422BCAFC9C0081AAB0 /* DBProjectTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProjectTracker.swift; sourceTree = "<group>"; };
 		1B8756442BCAFC9C0081AAB0 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				1B8756642BCDD33E0081AAB0 /* ProjectDetailView.swift */,
+				1B59D1A02BCDE8380088B686 /* ProjectUpdateView.swift */,
 			);
 			path = ProjectDetail;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B8756572BCB5F4D0081AAB0 /* FontExtension.swift in Sources */,
+				1B59D1A12BCDE8380088B686 /* ProjectUpdateView.swift in Sources */,
 				1B87565E2BCD95BA0081AAB0 /* StatBubbleView.swift in Sources */,
 				1B8756542BCAFD860081AAB0 /* ProjectUpdate.swift in Sources */,
 				1B8756622BCDAC5C0081AAB0 /* AddProjectView.swift in Sources */,

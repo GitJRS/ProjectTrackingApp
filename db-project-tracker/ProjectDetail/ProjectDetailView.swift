@@ -15,17 +15,117 @@ struct ProjectDetailView: View {
   
   var body: some View {
     
-    VStack {
+    ZStack {
       
-      Text(project.name)
-        .navigationBarBackButtonHidden(true)
+      LinearGradient(
+        colors: [Color("User Navy"), Color("User Blue")],
+        startPoint: .top,
+        endPoint: .bottom)
+      .ignoresSafeArea()
       
-      Button("Back") {
-        // navigate back
-        dismiss()
+      LinearGradient(
+        colors: [Color("User Sky Blue").opacity(0), Color("User Purple")],
+        startPoint: .top,
+        endPoint: .bottom)
+      .frame(width: 1)
+      .padding(.leading, -150)
+      
+      VStack {
+        
+        // header
+        VStack(alignment: .leading, spacing: 13) {
+          
+          Text(project.name)
+            .font(.screenHeading)
+          
+          HStack(alignment: .center, spacing: 13) {
+            
+            Spacer()
+            
+            StatBubbleView(title: "Hours", stat: "290", gradientStartColor: Color("User Navy"), gradientEndColor: Color("User Blue"))
+            StatBubbleView(title: "Sessions", stat: "34", gradientStartColor: Color("User Green"), gradientEndColor: Color("User Dark Lime"))
+            StatBubbleView(title: "Updates", stat: "32", gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Purple"))
+            StatBubbleView(title: "Wins", stat: "9", gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Olive"))
+            
+            Spacer()
+            
+          }
+          
+          Text("My current focus is")
+            .font(.featuredText)
+          
+          HStack {
+            
+            Image(systemName: "checkmark.square")
+            
+            Text("Design the new website")
+              .font(.featuredText)
+          }
+          .padding(.leading)
+        }
+        .foregroundStyle(.white)
+        .padding()
+        .background {
+          Color.black
+            .opacity(0.7)
+            .clipShape(.rect(bottomLeadingRadius: 15, bottomTrailingRadius: 15))
+            .ignoresSafeArea()
+        }
+        
+        //project updates
+        ScrollView(showsIndicators: false) {
+          
+          VStack(spacing: 27) {
+            
+            ProjectUpdateView()
+            ProjectUpdateView()
+            ProjectUpdateView()
+            ProjectUpdateView()
+            ProjectUpdateView()
+            ProjectUpdateView()
+          }
+          .padding()
+          .padding(.bottom, 80)
+        }
       }
-
+      
+      VStack {
+        
+        Spacer()
+        
+        HStack {
+          Button {
+            
+            // todo: add project update
+          } label: {
+            ZStack {
+              Circle()
+                .foregroundStyle(.black)
+                .frame(width: 65)
+              Image("cross")
+            }
+          }
+          .padding([.leading, .top])
+          
+          Spacer()
+          
+          Button("Back") {
+            dismiss()
+          }
+          .buttonStyle(.borderedProminent)
+          .foregroundStyle(.white)
+          .tint(.black)
+          .padding([.trailing, .top])
+        }
+        .background {
+          Color(.black)
+            .opacity(0.5)
+            .clipShape(.rect(topLeadingRadius: 15, topTrailingRadius: 15))
+            .ignoresSafeArea()
+        }
+      }
     }
+    .navigationBarBackButtonHidden(true)
   }
 }
 
