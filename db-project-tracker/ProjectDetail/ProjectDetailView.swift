@@ -11,6 +11,8 @@ struct ProjectDetailView: View {
   
   @Environment(\.dismiss) private var dismiss
   
+  @State private var update: ProjectUpdate?
+
   var project: Project
   
   var body: some View {
@@ -24,7 +26,7 @@ struct ProjectDetailView: View {
       .ignoresSafeArea()
       
       LinearGradient(
-        colors: [Color("User Sky Blue").opacity(0), Color("User Purple")],
+        colors: [Color("User Blue").opacity(0), Color("User Purple")],
         startPoint: .top,
         endPoint: .bottom)
       .frame(width: 1)
@@ -77,12 +79,9 @@ struct ProjectDetailView: View {
           
           VStack(spacing: 27) {
             
-            ProjectUpdateView()
-            ProjectUpdateView()
-            ProjectUpdateView()
-            ProjectUpdateView()
-            ProjectUpdateView()
-            ProjectUpdateView()
+            ForEach(project.updates) { update in
+              ProjectUpdateView(update: update)
+            }
           }
           .padding()
           .padding(.bottom, 80)
@@ -96,7 +95,8 @@ struct ProjectDetailView: View {
         HStack {
           Button {
             
-            // todo: add project update
+            // add project update
+            self.update = ProjectUpdate()
           } label: {
             ZStack {
               Circle()
@@ -126,6 +126,10 @@ struct ProjectDetailView: View {
       }
     }
     .navigationBarBackButtonHidden(true)
+    .sheet(item: $update) { update in
+      AddUpdateView(project: project, update: update)
+        .presentationDetents([.fraction(0.3)])
+    }
   }
 }
 

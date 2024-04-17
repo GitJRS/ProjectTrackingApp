@@ -35,3 +35,14 @@ extension Color {
     )
   }
 }
+
+// DateHelper
+struct DateHelper {
+  
+  static func convertDate(inputDate: Date) -> String {
+    
+    let df = DateFormatter()
+    df.dateFormat = "EEEE, MMM d, yyyy"
+    return df.string(from: inputDate)
+  }
+}
