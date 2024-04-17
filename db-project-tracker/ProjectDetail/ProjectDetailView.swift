@@ -12,6 +12,7 @@ struct ProjectDetailView: View {
   @Environment(\.dismiss) private var dismiss
   
   @State private var update: ProjectUpdate?
+  @State private var showEditFocus = false
 
   var project: Project
   
@@ -57,11 +58,21 @@ struct ProjectDetailView: View {
             .font(.featuredText)
           
           HStack {
+            if (project.focus.trimmingCharacters(in: .whitespacesAndNewlines) != "") {
+              
+              Button {
+                completeMilestone()
+              } label: {
+                Image(systemName: "checkmark.square")
+              }
+            }
             
-            Image(systemName: "checkmark.square")
-            
-            Text("Design the new website")
+            Text(project.focus.trimmingCharacters(in: .whitespacesAndNewlines) == "" ? "Tap to set focus" : project.focus)
               .font(.featuredText)
+              .onTapGesture {
+                // display edit focus form
+                showEditFocus = true
+              }
           }
           .padding(.leading)
         }
@@ -79,7 +90,9 @@ struct ProjectDetailView: View {
           
           VStack(spacing: 27) {
             
-            ForEach(project.updates) { update in
+            ForEach(project.updates.sorted(by: { u1, u2 in
+              u1.date > u2.date
+            })) { update in
               ProjectUpdateView(update: update)
             }
           }
@@ -130,6 +143,24 @@ struct ProjectDetailView: View {
       AddUpdateView(project: project, update: update)
         .presentationDetents([.fraction(0.3)])
     }
+    .sheet(isPresented: $showEditFocus) {
+      EditFocusView(project: project)
+        .presentationDetents([.fraction(0.2)])
+    }
+  }
+  
+  func completeMilestone() {
+    
+    // create a new project update for milestone
+    let update = ProjectUpdate()
+    update.updateType = .milestone
+    update.headline = "Milestone Achieved"
+    update.summary = project.focus
+    project.updates.append(update)
+    //project.updates.insert(update, at: 0)   //unneccessary since sorting, order matters not
+    
+    // clear project focus
+    project.focus = ""
   }
 }
 
