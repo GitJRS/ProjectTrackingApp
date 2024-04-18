@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProjectDetailView: View {
   
+  @Environment(\.modelContext) private var context
   @Environment(\.dismiss) private var dismiss
   
   @State private var newUpdate: ProjectUpdate?
@@ -45,10 +47,10 @@ struct ProjectDetailView: View {
             
             Spacer()
             
-            StatBubbleView(title: "Hours", stat: "290", gradientStartColor: Color("User Navy"), gradientEndColor: Color("User Blue"))
-            StatBubbleView(title: "Sessions", stat: "34", gradientStartColor: Color("User Green"), gradientEndColor: Color("User Dark Lime"))
-            StatBubbleView(title: "Updates", stat: "32", gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Purple"))
-            StatBubbleView(title: "Wins", stat: "9", gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Olive"))
+            StatBubbleView(title: "Hours", stat: String(project.hours), gradientStartColor: Color("User Navy"), gradientEndColor: Color("User Blue"))
+            StatBubbleView(title: "Sessions", stat: String(project.sessions), gradientStartColor: Color("User Green"), gradientEndColor: Color("User Dark Lime"))
+            StatBubbleView(title: "Updates", stat: String(project.updates.count), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Purple"))
+            StatBubbleView(title: "Wins", stat: String(project.wins), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Olive"))
             
             Spacer()
             
@@ -163,9 +165,13 @@ struct ProjectDetailView: View {
     update.updateType = .milestone
     update.headline = "Milestone Achieved"
     update.summary = project.focus
-    project.updates.append(update)
-    //project.updates.insert(update, at: 0)   //unneccessary since sorting, order matters not
+    project.updates.insert(update, at: 0)
     
+    // force a SwiftData save
+    try? context.save()
+    
+    // update stats
+    StatHelper.updateAdded(project: project, update: update)
     // clear project focus
     project.focus = ""
   }

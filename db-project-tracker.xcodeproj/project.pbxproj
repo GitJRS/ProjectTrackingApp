@@ -10,6 +10,7 @@
 		1B59D1A12BCDE8380088B686 /* ProjectUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B59D1A02BCDE8380088B686 /* ProjectUpdateView.swift */; };
 		1B59D1A32BCE18E20088B686 /* EditUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B59D1A22BCE18E20088B686 /* EditUpdateView.swift */; };
 		1B59D1A52BCF61BA0088B686 /* EditFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B59D1A42BCF61BA0088B686 /* EditFocusView.swift */; };
+		1B59D1A72BD0B2920088B686 /* StatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B59D1A62BD0B2920088B686 /* StatHelper.swift */; };
 		1B8756432BCAFC9C0081AAB0 /* DBProjectTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8756422BCAFC9C0081AAB0 /* DBProjectTracker.swift */; };
 		1B8756452BCAFC9C0081AAB0 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8756442BCAFC9C0081AAB0 /* ProjectListView.swift */; };
 		1B8756472BCAFCA20081AAB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B8756462BCAFCA20081AAB0 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		1B59D1A02BCDE8380088B686 /* ProjectUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateView.swift; sourceTree = "<group>"; };
 		1B59D1A22BCE18E20088B686 /* EditUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUpdateView.swift; sourceTree = "<group>"; };
 		1B59D1A42BCF61BA0088B686 /* EditFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFocusView.swift; sourceTree = "<group>"; };
+		1B59D1A62BD0B2920088B686 /* StatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatHelper.swift; sourceTree = "<group>"; };
 		1B87563F2BCAFC9C0081AAB0 /* db-project-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "db-project-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B8756422BCAFC9C0081AAB0 /* DBProjectTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProjectTracker.swift; sourceTree = "<group>"; };
 		1B8756442BCAFC9C0081AAB0 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				1B87565A2BCD741B0081AAB0 /* HelperUtils.swift */,
 				1B8756562BCB5F4D0081AAB0 /* FontExtension.swift */,
+				1B59D1A62BD0B2920088B686 /* StatHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				1B8756602BCD98740081AAB0 /* ProjectCardView.swift in Sources */,
 				1B8756432BCAFC9C0081AAB0 /* DBProjectTracker.swift in Sources */,
 				1B8756652BCDD33E0081AAB0 /* ProjectDetailView.swift in Sources */,
+				1B59D1A72BD0B2920088B686 /* StatHelper.swift in Sources */,
 				1B8756522BCAFD030081AAB0 /* Project.swift in Sources */,
 				1B87565B2BCD741B0081AAB0 /* HelperUtils.swift in Sources */,
 			);
