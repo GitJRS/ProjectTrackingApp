@@ -11,6 +11,7 @@ import SwiftData
 struct ProjectListView: View {
   
   @State private var newProject: Project?
+  @State private var selectedProject: Project?
   @Query private var projects: [Project]
   
   var body: some View {
@@ -37,12 +38,13 @@ struct ProjectListView: View {
               
               ForEach(projects) { p in
                 
-                NavigationLink {
-                  ProjectDetailView(project: p)
-                } label: {
-                  ProjectCardView(project: p)
-                }
-                .buttonStyle(.plain)
+                ProjectCardView(project: p)
+                  .onTapGesture {
+                    selectedProject = p
+                  }
+                  .onLongPressGesture {
+                    newProject = p
+                  }
               }
             }
           }
@@ -76,9 +78,15 @@ struct ProjectListView: View {
         }
         .padding(.leading)
       }
+      .navigationDestination(item: $selectedProject) { project in
+        ProjectDetailView(project: project)
+      }
     }
     .sheet(item: $newProject) { project in
-      AddProjectView(project: project)
+      
+      let isEdit = project.name.trimmingCharacters(in: .whitespacesAndNewlines) != ""
+      
+      EditProjectView(project: project, isEditMode: isEdit)
         .presentationDetents([.fraction(0.2)])
       
     }
