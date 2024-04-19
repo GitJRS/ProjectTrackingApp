@@ -47,10 +47,10 @@ struct ProjectDetailView: View {
             
             Spacer()
             
-            StatBubbleView(title: "Hours", stat: String(project.hours), gradientStartColor: Color("User Navy"), gradientEndColor: Color("User Blue"))
-            StatBubbleView(title: "Sessions", stat: String(project.sessions), gradientStartColor: Color("User Green"), gradientEndColor: Color("User Dark Lime"))
-            StatBubbleView(title: "Updates", stat: String(project.updates.count), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Purple"))
-            StatBubbleView(title: "Wins", stat: String(project.wins), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Olive"))
+            StatBubbleView(title: "Hours", stat: project.hours, gradientStartColor: Color("User Navy"), gradientEndColor: Color("User Blue"))
+            StatBubbleView(title: "Sessions", stat: Double(project.sessions), gradientStartColor: Color("User Green"), gradientEndColor: Color("User Dark Lime"))
+            StatBubbleView(title: "Updates", stat: Double(project.updates.count), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Purple"))
+            StatBubbleView(title: "Wins", stat: Double(project.wins), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Olive"))
             
             Spacer()
             
@@ -88,23 +88,44 @@ struct ProjectDetailView: View {
         }
         
         //project updates
-        ScrollView(showsIndicators: false) {
-          
-          VStack(spacing: 27) {
+        if project.updates.count > 0 {
+          ScrollView(showsIndicators: false) {
             
-            ForEach(project.updates.sorted(by: { u1, u2 in
-              u1.date > u2.date
-            })) { update in
-              ProjectUpdateView(update: update)
-                .onTapGesture {
-                }
-                .onLongPressGesture {
-                  newUpdate = update
-                }
+            VStack(spacing: 27) {
+              
+              ForEach(project.updates.sorted(by: { u1, u2 in
+                u1.date > u2.date
+              })) { update in
+                ProjectUpdateView(update: update)
+                  .onTapGesture {
+                  }
+                  .onLongPressGesture {
+                    newUpdate = update
+                  }
+              }
             }
+            .padding()
+            .padding(.bottom, 80)
           }
-          .padding()
-          .padding(.bottom, 80)
+        } else {
+          Spacer()
+          
+          HStack {
+            
+            Spacer()
+            
+            Button("Tap to add an update") {
+              newUpdate = ProjectUpdate()
+            }
+            .buttonStyle(.bordered)
+            .foregroundStyle(.white)
+            .font(.bigHeadline)
+            
+            Spacer()
+          }
+          
+          Spacer()
+          Spacer()
         }
       }
       

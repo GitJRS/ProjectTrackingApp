@@ -32,21 +32,42 @@ struct ProjectListView: View {
             .font(Font.screenHeading)
             .foregroundStyle(.white)
           
-          ScrollView (showsIndicators: false) {
-            
-            VStack (alignment: .leading, spacing: 26) {
+          if projects.count > 0 {
+            ScrollView (showsIndicators: false) {
               
-              ForEach(projects) { p in
+              VStack (alignment: .leading, spacing: 26) {
                 
-                ProjectCardView(project: p)
-                  .onTapGesture {
-                    selectedProject = p
-                  }
-                  .onLongPressGesture {
-                    newProject = p
-                  }
+                ForEach(projects) { p in
+                  
+                  ProjectCardView(project: p)
+                    .onTapGesture {
+                      selectedProject = p
+                    }
+                    .onLongPressGesture {
+                      newProject = p
+                    }
+                }
               }
             }
+          } else {
+            
+            Spacer()
+            
+            HStack {
+              
+              Spacer()
+              
+              Button("Tap to add a new project") {
+                newProject = Project()
+              }
+              .buttonStyle(.bordered)
+              .foregroundStyle(.white)
+              .font(.bigHeadline)
+              
+              Spacer()
+            }
+            
+            Spacer()
           }
         }
         .padding()

@@ -35,6 +35,9 @@ struct EditProjectView: View {
           
           TextField("Project name", text: $projectName)
             .textFieldStyle(.roundedBorder)
+            .onChange(of: projectName) { oldValue, newValue in
+              projectName = TextHelper.limitChars(input: projectName, limit: 30)
+            }
           
           Button(isEditMode ? "Save" : "Add") {
             
@@ -51,7 +54,7 @@ struct EditProjectView: View {
           .buttonStyle(.borderedProminent)
           .tint(.blue)
           // ensure project has a name
-          .disabled(projectName.trimmingCharacters(in: .whitespacesAndNewlines) == "")
+          .disabled(projectName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
           
           if isEditMode {
             // show delete button

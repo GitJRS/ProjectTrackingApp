@@ -46,3 +46,30 @@ struct DateHelper {
     return df.string(from: inputDate)
   }
 }
+
+// TextHelper
+struct TextHelper {
+  
+  static func convertStat(input: Double) -> String {
+    
+    switch (input) {
+    case let stat where input > 1000000:
+      let dividedStat = stat/1000000
+      return "\(round(dividedStat * 10) / 10)M"
+    case let stat where input > 1000:
+      let dividedStat = stat/1000
+      return "\(round(dividedStat * 10) / 10)K"
+    default:
+      return String(Int(input))
+    }
+  }
+  
+  static func limitChars(input: String, limit: Int) -> String {
+    if input.count > limit {
+      return String(input.prefix(limit))
+    }
+    return input
+  }
+}
+
+

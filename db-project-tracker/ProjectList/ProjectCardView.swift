@@ -29,10 +29,10 @@ struct ProjectCardView: View {
           
           Spacer()
           
-          StatBubbleView(title: "Hours", stat: String(project.hours), gradientStartColor: Color("User Navy"), gradientEndColor: Color("User Blue"))
-          StatBubbleView(title: "Sessions", stat: String(project.sessions), gradientStartColor: Color("User Green"), gradientEndColor: Color("User Dark Lime"))
-          StatBubbleView(title: "Updates", stat: String(project.updates.count), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Purple"))
-          StatBubbleView(title: "Wins", stat: String(project.wins), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Olive"))
+          StatBubbleView(title: "Hours", stat: project.hours, gradientStartColor: Color("User Navy"), gradientEndColor: Color("User Blue"))
+          StatBubbleView(title: "Sessions", stat: Double(project.sessions), gradientStartColor: Color("User Green"), gradientEndColor: Color("User Dark Lime"))
+          StatBubbleView(title: "Updates", stat: Double(project.updates.count), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Purple"))
+          StatBubbleView(title: "Wins", stat: Double(project.wins), gradientStartColor: Color("User Maroon"), gradientEndColor: Color("User Olive"))
           
           Spacer()
         }

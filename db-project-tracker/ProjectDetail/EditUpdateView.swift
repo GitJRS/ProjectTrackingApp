@@ -45,6 +45,11 @@ struct EditUpdateView: View {
           TextField("Hours", text: $hours)
             .keyboardType(.numberPad)
             .frame(width: 60)
+          // this is awful. only allows a max of 24. changes higher values to 24, and only allows 2 chars
+            .onChange(of: hours) { oldValue, newValue in
+              let num = Int(TextHelper.limitChars(input: hours, limit: 2)) ?? 0
+              hours = num > 24 ? "24" : String(num)
+            }
           
           Button(isEditMode ? "Save" : "Add") {
             
@@ -74,6 +79,7 @@ struct EditUpdateView: View {
           }
           .buttonStyle(.borderedProminent)
           .tint(.blue)
+          .disabled(shouldDisable())
           
           if isEditMode {
             Button("Delete") {
@@ -108,6 +114,13 @@ struct EditUpdateView: View {
       summary = update.summary
       hours = String(Int(update.hours))
     }
+  }
+  
+  private func shouldDisable() -> Bool {
+    // if headline/summary/hours is empty, then disable saving
+    return headline.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+    summary.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+    hours.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
   }
 }
 
