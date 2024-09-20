@@ -45,9 +45,15 @@ struct EditProjectView: View {
               // save new project name
               project.name = projectName
             } else {
-              // add project to SwiftData
-              project.name = projectName
-              context.insert(project)
+              
+              withAnimation {
+                // add project to SwiftData
+                project.name = projectName
+                context.insert(project)
+                
+                // force a SwiftData save to show animation
+                try? context.save()
+              }
             }
             dismiss()
           }
@@ -75,8 +81,15 @@ struct EditProjectView: View {
     }
     .confirmationDialog("Really delete?", isPresented: $showConfirmation, titleVisibility: .visible) {
       Button("Yes, delete") {
-        // delete project from SwiftData
-        context.delete(project)
+        
+        withAnimation {
+          // delete project from SwiftData
+          context.delete(project)
+          
+          // force a SwiftData save to show animation
+          try? context.save()
+        }
+        
         dismiss()
       }
     }

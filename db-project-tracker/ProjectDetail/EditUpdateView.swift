@@ -62,18 +62,25 @@ struct EditUpdateView: View {
             update.hours = Double(hours)!
             
             if !isEditMode {
-              // Add Update
-              project.updates.insert(update, at: 0)
-              
-              // force a SwiftData save
-              try? context.save()
-              
-              // update stats
-              StatHelper.updateAdded(project: project, update: update)
+             
+              withAnimation {
+                
+                // Add Update
+                project.updates.insert(update, at: 0)
+                
+                // force a SwiftData save
+                try? context.save()
+                
+                // update stats
+                StatHelper.updateAdded(project: project, update: update)
+              }
             } else {
-              // edit update
-              // update stats
-              StatHelper.updateEdited(project: project, hoursDifference: hoursDifference)
+              
+              withAnimation {
+                // edit update
+                // update stats
+                StatHelper.updateEdited(project: project, hoursDifference: hoursDifference)
+              }
             }
             dismiss()
           }
@@ -99,13 +106,18 @@ struct EditUpdateView: View {
     }
     .confirmationDialog("Really delete update?", isPresented: $showConfirmation) {
       Button("Yes, delete") {
-        project.updates.removeAll { u in
-          u.id == update.id
+        
+        withAnimation {
+          
+          project.updates.removeAll { u in
+            u.id == update.id
+          }
+          // force a SwiftData save
+          try? context.save()
+          // delete updates
+          StatHelper.updateDeleted(project: project, update: update)
         }
-        // force a SwiftData save
-        try? context.save()
-        // delete updates
-        StatHelper.updateDeleted(project: project, update: update)
+        
         dismiss()
       }
     }
